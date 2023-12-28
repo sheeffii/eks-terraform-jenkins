@@ -13,16 +13,16 @@ module "vpc" {
   single_nat_gateway   = true
 
   tags = {
-    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/cluster/shefqet-eks-cluster" = "shared"
   }
 
   public_subnet_tags = {
-    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/cluster/shefqet-eks-cluster" = "shared"
     "kubernetes.io/role/elb"               = 1
   }
 
   private_subnet_tags = {
-    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/cluster/shefqet-eks-cluster" = "shared"
     "kubernetes.io/role/internal-elb"      = 1
   }
 
@@ -31,7 +31,7 @@ module "vpc" {
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name    = "shefqet-eks-cluster"
+  cluster_name    = "-eks-cluster"
   cluster_version = "1.27"
 
   cluster_endpoint_public_access = true
